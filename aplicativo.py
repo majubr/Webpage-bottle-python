@@ -1,6 +1,4 @@
-from bottle import get, route, run, request, template,error,static_file
-
-
+from bottle import get, route, run, request, template,error
 
 @route('/')
 def login():
