@@ -1,4 +1,5 @@
 from bottle import get, route, run, request, template,error
+import os
 
 @route('/')
 def login():
@@ -21,8 +22,8 @@ def executar_login():
 def error404(error):
 	return template('pagina404')
 
-if __name__ == '__main__':
-	if os.environ.get ('APP_LOCATION') == 'heroku':
-		run(host='0.0.0.0', port = int(os.environ.get('PORT', 5000)))
+if __name__ == "__main__":
+	if os.environ.get('APP_LOCATION') == 'heroku':
+		run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 	else:
-		run(host='localhost', port=8080, debug=True)
+		run(host='localhost', port=8080, debug=True, reloader=True)
