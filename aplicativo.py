@@ -1,8 +1,6 @@
 from bottle import get, route, run, request, template,error,static_file
 
-@get('/<filename:re:.*\.(jpg|png|gif|ico)>')
-def images(filename):
-	return static_file(filename, root='static/img')
+
 
 @route('/')
 def login():
@@ -13,6 +11,7 @@ def verificar_login (nome_usuario, senha):
 	if nome_usuario in d.keys() and d[nome_usuario] == senha:
 		return True
 	return False
+
 
 @route('/login', method='POST')
 def executar_login():
